@@ -17,10 +17,12 @@ func _physics_process(delta):
 	if Input.is_action_pressed("move_right"):
 		_velocity.x = SPEED 
 		_animation_control.play("run")
+		_animation_control.flip_h = false
 	elif Input.is_action_just_released("move_right"):
 		_animation_control.play("idle")
 	if Input.is_action_pressed("move_left"):
 		_velocity.x = -SPEED
+		_animation_control.flip_h = _velocity.x < 0
 		_animation_control.play("run")
 	elif Input.is_action_just_released("move_left"):
 		_animation_control.play("idle")
