@@ -3,7 +3,7 @@ extends KinematicBody2D
 
 const SPEED = 180
 const GRAVITY = 30
-const JUMPFORCE = -700
+const JUMPFORCE = -550
 var _velocity = Vector2(0,0)
 onready var _animation_control = $AnimatedSprite
 
