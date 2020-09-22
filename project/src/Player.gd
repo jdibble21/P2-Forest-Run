@@ -5,6 +5,7 @@ const SPEED = 180
 const GRAVITY = 30
 const JUMPFORCE = -550
 var _velocity = Vector2(0,0)
+var _is_defeated = false
 onready var _animation_control = $AnimatedSprite
 
 func _ready():
