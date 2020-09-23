@@ -6,6 +6,7 @@ const GRAVITY = 30
 const JUMPFORCE = -550
 var _velocity = Vector2(0,0)
 var _is_defeated = false
+var _has_sword = false
 onready var _animation_control = $AnimatedSprite
 
 func _ready():
@@ -36,3 +37,15 @@ func _physics_process(delta):
 		
 	_velocity = move_and_slide(_velocity,Vector2.UP)
 	_velocity.x = lerp(_velocity.x,0,0.5)
+
+func _play_idle_animation():
+	if _has_sword:
+		pass
+		#play sword idle
+	if !(_has_sword):
+		pass
+		_animation_control.play("idle")
+
+
+func _on_Area2D_area_entered(area):
+	pass

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://src/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/Bandit/LightBandit_Combat Idle_0.png" type="Texture" id=2]
@@ -42,7 +42,7 @@ animations = [ {
 "frames": [ ExtResource( 6 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 16 ), ExtResource( 12 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 15 ) ],
 "loop": true,
 "name": "attack",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 13 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 14 ) ],
 "loop": true,
@@ -50,8 +50,11 @@ animations = [ {
 "speed": 10.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 34.2778, 24.4429 )
+
 [node name="Enemy" type="KinematicBody2D"]
-position = Vector2( 519.137, 234.141 )
+position = Vector2( 532.996, 237.291 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -64,3 +67,9 @@ shape = SubResource( 1 )
 position = Vector2( 0.472473, 0.15749 )
 frames = SubResource( 2 )
 animation = "attack"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 3 )
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
