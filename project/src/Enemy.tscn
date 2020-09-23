@@ -1,0 +1,66 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://src/Enemy.gd" type="Script" id=1]
+[ext_resource path="res://assets/Bandit/LightBandit_Combat Idle_0.png" type="Texture" id=2]
+[ext_resource path="res://assets/Bandit/LightBandit_Attack_1.png" type="Texture" id=3]
+[ext_resource path="res://assets/Bandit/LightBandit_Attack_2.png" type="Texture" id=4]
+[ext_resource path="res://assets/Bandit/LightBandit_Attack_5.png" type="Texture" id=5]
+[ext_resource path="res://assets/Bandit/LightBandit_Attack_0.png" type="Texture" id=6]
+[ext_resource path="res://assets/Bandit/LightBandit_Run_5.png" type="Texture" id=7]
+[ext_resource path="res://assets/Bandit/LightBandit_Run_6.png" type="Texture" id=8]
+[ext_resource path="res://assets/Bandit/LightBandit_Attack_6.png" type="Texture" id=9]
+[ext_resource path="res://assets/Bandit/LightBandit_Run_4.png" type="Texture" id=10]
+[ext_resource path="res://assets/Bandit/LightBandit_Run_3.png" type="Texture" id=11]
+[ext_resource path="res://assets/Bandit/LightBandit_Attack_4.png" type="Texture" id=12]
+[ext_resource path="res://assets/Bandit/LightBandit_Run_2.png" type="Texture" id=13]
+[ext_resource path="res://assets/Bandit/LightBandit_Run_7.png" type="Texture" id=14]
+[ext_resource path="res://assets/Bandit/LightBandit_Attack_7.png" type="Texture" id=15]
+[ext_resource path="res://assets/Bandit/LightBandit_Attack_3.png" type="Texture" id=16]
+[ext_resource path="res://assets/Bandit/LightBandit_Run_0.png" type="Texture" id=17]
+[ext_resource path="res://assets/Bandit/LightBandit_Run_1.png" type="Texture" id=18]
+[ext_resource path="res://assets/Bandit/LightBandit_Combat Idle_2.png" type="Texture" id=19]
+[ext_resource path="res://assets/Bandit/LightBandit_Combat Idle_1.png" type="Texture" id=20]
+[ext_resource path="res://assets/Bandit/LightBandit_Combat Idle_3.png" type="Texture" id=21]
+[ext_resource path="res://assets/Bandit/LightBandit_Death_0.png" type="Texture" id=22]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 11.8126
+height = 26.6314
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 20 ), ExtResource( 19 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "death",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 16 ), ExtResource( 12 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "attack",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 13 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "patrol",
+"speed": 5.0
+} ]
+
+[node name="Enemy" type="KinematicBody2D"]
+position = Vector2( 519.137, 234.141 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0.472473, 0.15749 )
+frames = SubResource( 1 )
+animation = "attack"

@@ -31,4 +31,4 @@ Github Pages:
 
 ## Game Instructions
 
-## Third-Part Assets
+## Third-Party Assets
