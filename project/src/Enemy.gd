@@ -1,3 +1,4 @@
+# Contains logic for patrol path and detecting and attacking player
 extends KinematicBody2D
 
 signal _hit_player

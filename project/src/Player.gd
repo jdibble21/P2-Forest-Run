@@ -1,4 +1,5 @@
-# Controls player movement and processes physics
+# Controls player movement and processes physics, detects when hit
+# by enemy or touched hazardous object
 extends KinematicBody2D
 
 signal player_death
@@ -14,6 +15,7 @@ func _ready():
 	has_sword = false
 	_play_idle_animation()
 	_node_enemy_1.connect("_hit_player", self, "_on_player_hit")
+	
 	
 func _physics_process(delta):
 	if is_on_floor() and (!Input.is_action_pressed("move_left") and (!Input.is_action_pressed("move_right"))):
@@ -45,11 +47,15 @@ func _play_idle_animation():
 	if !(has_sword):
 		_animation_control.play("idle")
 
-
 func _on_player_hit():
+	emit_signal("player_death")
 	_animation_control.play("death")
 	set_physics_process(false)
 	
-	
-func _on_Area2D_area_entered(area):
-	pass
+
+func _on_DeathArea_area_entered(area):
+	emit_signal("player_death")
+	_animation_control.play("death")
+	set_physics_process(false)
+
+
