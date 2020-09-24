@@ -18,7 +18,6 @@ func _process(delta):
 	
 	
 func _patrol(delta):
-	
 	if _player_detected:
 		if _idle_check:
 			_animation_control.play("idle")

@@ -1,11 +1,11 @@
 # Controls player movement and processes physics
 extends KinematicBody2D
 
+signal player_death
 const SPEED = 180
 const GRAVITY = 30
 const JUMPFORCE = -550
 var _velocity = Vector2(0,0)
-var _is_defeated = false
 var _has_sword = false
 onready var _node_enemy_1 = get_node("/root/World/Enemy1")
 onready var _animation_control = $AnimatedSprite
@@ -30,7 +30,6 @@ func _physics_process(delta):
 	elif Input.is_action_just_released("move_left"):
 		_animation_control.play("idle")
 	_velocity.y = _velocity.y + GRAVITY
-	
 	if not is_on_floor():
 		_animation_control.play("jump")
 	if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -38,6 +37,7 @@ func _physics_process(delta):
 		
 	_velocity = move_and_slide(_velocity,Vector2.UP)
 	_velocity.x = lerp(_velocity.x,0,0.5)
+
 
 func _play_idle_animation():
 	if _has_sword:
@@ -47,9 +47,11 @@ func _play_idle_animation():
 		pass
 		_animation_control.play("idle")
 
+
 func _on_player_hit():
-	print("Player is hit!!")
 	_animation_control.play("death")
 	set_physics_process(false)
+	
+	
 func _on_Area2D_area_entered(area):
 	pass

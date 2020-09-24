@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://assets/FreePlatformerNA/Foreground/Tileset.png" type="Texture" id=1]
 [ext_resource path="res://src/Player.tscn" type="PackedScene" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://assets/FreePlatformerNA/Foreground/TilesExamples.png" type="Texture" id=9]
 [ext_resource path="res://src/Enemy.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/World.gd" type="Script" id=11]
+[ext_resource path="res://assets/custom_assets/sword-1.png.png" type="Texture" id=12]
+[ext_resource path="res://assets/custom_assets/sword-2.png.png" type="Texture" id=13]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Tileset.png 0"
@@ -30,6 +32,8 @@
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 24, 8 )
+
+[sub_resource type="GDScript" id=23]
 
 [sub_resource type="TileSet" id=3]
 0/name = "Tileset.png 0"
@@ -284,6 +288,7 @@ extents = Vector2( 24, 8 )
 17/shape_one_way_margin = 0.0
 17/shapes = [  ]
 17/z_index = 0
+script = SubResource( 23 )
 
 [sub_resource type="ConvexPolygonShape2D" id=4]
 points = PoolVector2Array( 15.3499, 0.559937, 15.5825, 15.4443, 10.9311, 15.4443, 3.0238, 0.559937 )
@@ -851,6 +856,14 @@ points = PoolVector2Array( 48, 9.14157, 0, 8.909, 0, 4.25764, 48, 3.7925 )
 3/shapes = [  ]
 3/z_index = 0
 
+[sub_resource type="SpriteFrames" id=24]
+animations = [ {
+"frames": [ ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "standby",
+"speed": 2.0
+} ]
+
 [node name="World" type="Node2D"]
 script = ExtResource( 11 )
 
@@ -937,3 +950,10 @@ position = Vector2( 104.71, 259.415 )
 current = true
 zoom = Vector2( 0.6, 0.6 )
 drag_margin_h_enabled = true
+
+[node name="CollectableSword" type="StaticBody2D" parent="."]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="CollectableSword"]
+position = Vector2( 746.968, 196.307 )
+frames = SubResource( 24 )
+animation = "standby"

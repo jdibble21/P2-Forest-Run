@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Mockup.png-58732bc7dbb87c35594b409273ca44f8.stex"
+path="res://.import/sword-2.png.png-ea980d2c39773af8b45f593920171a33.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/FreePlatformerNA/Mockup.png"
-dest_files=[ "res://.import/Mockup.png-58732bc7dbb87c35594b409273ca44f8.stex" ]
+source_file="res://assets/custom_assets/sword-2.png.png"
+dest_files=[ "res://.import/sword-2.png.png-ea980d2c39773af8b45f593920171a33.stex" ]
 
 [params]
 

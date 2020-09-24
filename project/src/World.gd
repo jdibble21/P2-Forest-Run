@@ -1,6 +1,7 @@
 extends Node2D
 
+onready var _sword_pickup_animation = $CollectableSword/AnimatedSprite
 
 func _ready():
-	pass # Replace with function body.
+	_sword_pickup_animation.play("standby")
 
