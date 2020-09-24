@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://assets/FreePlatformerNA/Foreground/Tileset.png" type="Texture" id=1]
 [ext_resource path="res://src/Player.tscn" type="PackedScene" id=2]
@@ -864,6 +864,9 @@ animations = [ {
 "speed": 2.0
 } ]
 
+[sub_resource type="CircleShape2D" id=25]
+radius = 13.7239
+
 [node name="World" type="Node2D"]
 script = ExtResource( 11 )
 
@@ -952,8 +955,16 @@ zoom = Vector2( 0.6, 0.6 )
 drag_margin_h_enabled = true
 
 [node name="CollectableSword" type="StaticBody2D" parent="."]
+position = Vector2( 279.16, -129.923 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CollectableSword"]
-position = Vector2( 746.968, 196.307 )
+position = Vector2( 469.224, 326.734 )
 frames = SubResource( 24 )
 animation = "standby"
+
+[node name="Area2D" type="Area2D" parent="CollectableSword"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableSword/Area2D"]
+position = Vector2( 469.452, 323.79 )
+shape = SubResource( 25 )
+[connection signal="area_entered" from="CollectableSword/Area2D" to="." method="_on_Area2D_area_entered"]
