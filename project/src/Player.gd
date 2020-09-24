@@ -7,11 +7,12 @@ const JUMPFORCE = -550
 var _velocity = Vector2(0,0)
 var _is_defeated = false
 var _has_sword = false
+onready var _node_enemy_1 = get_node("/root/World/Enemy1")
 onready var _animation_control = $AnimatedSprite
 
 func _ready():
 	_animation_control.play("idle")
-	
+	_node_enemy_1.connect("_hit_player", self, "_on_player_hit")
 	
 func _physics_process(delta):
 	if is_on_floor() and (!Input.is_action_pressed("move_left") and (!Input.is_action_pressed("move_right"))):
@@ -46,6 +47,9 @@ func _play_idle_animation():
 		pass
 		_animation_control.play("idle")
 
-
+func _on_player_hit():
+	print("Player is hit!!")
+	_animation_control.play("death")
+	set_physics_process(false)
 func _on_Area2D_area_entered(area):
 	pass
