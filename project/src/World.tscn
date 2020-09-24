@@ -927,7 +927,7 @@ texture = ExtResource( 14 )
 [node name="DeathArea" type="Area2D" parent="SpikePit1"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SpikePit1/DeathArea"]
-polygon = PoolVector2Array( -42.6003, 1.48956, -66.8503, -21.5104, -43.6003, 14.4896, 42.3997, 14.4896, 75.1497, -18.5104, 56.6497, -23.0104, 42.3997, -1.01044 )
+polygon = PoolVector2Array( -42.6003, 1.48956, -66.8503, -21.5104, -43.6003, 14.4896, 42.3997, 14.4896, 75.1497, -18.5104, 56.9584, -34.323, 42.3997, -1.01044 )
 
 [node name="SpikePit2" type="StaticBody2D" parent="."]
 position = Vector2( 2278.3, 367.892 )

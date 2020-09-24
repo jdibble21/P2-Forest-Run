@@ -3,21 +3,27 @@
 extends KinematicBody2D
 
 signal player_death
+signal player_attack
 const SPEED = 180
 const GRAVITY = 30
 const JUMPFORCE = -550
 var _velocity = Vector2(0,0)
+var _elapsed = 0
+var _attacking_now = false
 onready var has_sword
 onready var _node_enemy_1 = get_node("/root/World/Enemy1")
 onready var _animation_control = $AnimatedSprite
 
 func _ready():
 	has_sword = false
-	_play_idle_animation()
+	#_play_idle_animation()
 	_node_enemy_1.connect("_hit_player", self, "_on_player_hit")
 	
 	
 func _physics_process(delta):
+	if Input.is_action_pressed("attack") and has_sword:
+		_play_attack_animation()
+		return
 	if is_on_floor() and (!Input.is_action_pressed("move_left") and (!Input.is_action_pressed("move_right"))):
 		_play_idle_animation()
 	if Input.is_action_pressed("move_right"):
@@ -40,6 +46,12 @@ func _physics_process(delta):
 	_velocity = move_and_slide(_velocity,Vector2.UP)
 	_velocity.x = lerp(_velocity.x,0,0.5)
 
+func _play_attack_animation():
+	_attacking_now = true
+	emit_signal("player_attack")
+	_animation_control.play("attack")
+	
+	
 
 func _play_idle_animation():
 	if has_sword:
