@@ -7,6 +7,7 @@ onready var _node_enemy = $Enemy1
 onready var _node_HUD_gameover_label = $Player/Camera2D/HUD/GameOverLabel
 onready var _node_HUD_swordinventory_image = $Player/Camera2D/HUD/SwordInventoryImage
 onready var _node_HUD_swordhint_label = $Player/Camera2D/HUD/AttackHintLabel
+
 func _ready():
 	_node_player.connect("player_death", self, "_game_over")
 	_sword_pickup_animation.play("standby")

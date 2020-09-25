@@ -20,6 +20,7 @@ func _ready():
 	_node_enemy_1.connect("_hit_player", self, "_on_player_hit")
 	_node_enemy_2.connect("_hit_player", self, "on_player_hit")
 	
+	
 func _physics_process(delta):
 	if Input.is_action_pressed("attack") and has_sword:
 		_play_attack_animation()
@@ -46,18 +47,19 @@ func _physics_process(delta):
 	_velocity = move_and_slide(_velocity,Vector2.UP)
 	_velocity.x = lerp(_velocity.x,0,0.5)
 
+
 func _play_attack_animation():
 	_attacking_now = true
 	emit_signal("player_attack")
 	_animation_control.play("attack")
-	
-	
+
 
 func _play_idle_animation():
 	if has_sword:
 		_animation_control.play("idle_sword")
 	if !(has_sword):
 		_animation_control.play("idle")
+
 
 func _on_player_hit():
 	emit_signal("player_death")
