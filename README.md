@@ -3,7 +3,7 @@ First Iteration of a multi part project by Jacob Dibble
 
 2D Platforming game set in a forest environment
 
-Github Pages: 
+Github Pages: https://bsu-cs315.github.io/P2-Forest-Run/
 ## Project Report
 
 - [ ] D-1: The repository link is submitted to Canvas before the project deadline.
