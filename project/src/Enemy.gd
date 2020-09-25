@@ -56,6 +56,7 @@ func _attack():
 	_animation_control.play("attack")
 	if _player_detected:
 		emit_signal("_hit_player")
+		
 	
 	
 func _has_been_defeated():

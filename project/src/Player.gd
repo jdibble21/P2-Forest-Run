@@ -12,13 +12,13 @@ var _elapsed = 0
 var _attacking_now = false
 onready var has_sword
 onready var _node_enemy_1 = get_node("/root/World/Enemy1")
+onready var _node_enemy_2 = get_node("/root/World/Enemy2")
 onready var _animation_control = $AnimatedSprite
 
 func _ready():
 	has_sword = false
-	#_play_idle_animation()
 	_node_enemy_1.connect("_hit_player", self, "_on_player_hit")
-	
+	_node_enemy_2.connect("_hit_player", self, "on_player_hit")
 	
 func _physics_process(delta):
 	if Input.is_action_pressed("attack") and has_sword:
