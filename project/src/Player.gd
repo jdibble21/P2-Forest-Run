@@ -21,8 +21,8 @@ onready var _animation_control = $AnimatedSprite
 
 func _ready():
 	has_sword = false
-	_node_enemy_1.connect("_hit_player", self, "_on_player_hit")
-	_node_enemy_2.connect("_hit_player", self, "_on_player_hit")
+	_node_enemy_1.connect("hit_player", self, "_on_player_hit")
+	_node_enemy_2.connect("hit_player", self, "_on_player_hit")
 	
 	
 func _physics_process(delta):

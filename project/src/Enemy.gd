@@ -1,7 +1,7 @@
-# Contains logic for patrol path and detecting and attacking player
+# Contains logic for enemy patrol path, and checks for combat with player
 extends KinematicBody2D
 
-signal _hit_player
+signal hit_player
 
 const SPEED = 50
 const GRAVITY = 30
@@ -66,7 +66,7 @@ func _attack():
 	_idle_check = false
 	_animation_control.play("attack")
 	if _player_detected:
-		emit_signal("_hit_player")
+		emit_signal("hit_player")
 		
 	
 func _enemy1_has_been_defeated():
