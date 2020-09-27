@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/LightBandit_Run_7.png-1b4fa16100259b73f29e42a7b0a6b6e5.stex"
+path="res://.import/lightbandit_run_7.png-017190bb58419eb29a0ff90abc68b563.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Bandit/LightBandit_Run_7.png"
-dest_files=[ "res://.import/LightBandit_Run_7.png-1b4fa16100259b73f29e42a7b0a6b6e5.stex" ]
+source_file="res://assets/Bandit/lightbandit_run_7.png"
+dest_files=[ "res://.import/lightbandit_run_7.png-017190bb58419eb29a0ff90abc68b563.stex" ]
 
 [params]
 

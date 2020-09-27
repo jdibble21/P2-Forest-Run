@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/LightBandit_Death_0.png-48c96c7878f7bc62a0166f3c01d06ee3.stex"
+path="res://.import/lightbandit_death_0.png-efab7ff04777c61020239726b2f3e193.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Bandit/LightBandit_Death_0.png"
-dest_files=[ "res://.import/LightBandit_Death_0.png-48c96c7878f7bc62a0166f3c01d06ee3.stex" ]
+source_file="res://assets/Bandit/lightbandit_death_0.png"
+dest_files=[ "res://.import/lightbandit_death_0.png-efab7ff04777c61020239726b2f3e193.stex" ]
 
 [params]
 

@@ -3,7 +3,8 @@ extends Node2D
 onready var _sword_pickup_animation = $CollectableSword/AnimatedSprite
 onready var _sword_pickup = $CollectableSword
 onready var _node_player = $Player
-onready var _node_enemy = $Enemy1
+onready var _node_enemy1 = $Enemy1
+onready var _node_enemy2 = $Enemy2
 onready var _node_HUD_gameover_label = $Player/Camera2D/HUD/GameOverLabel
 onready var _node_HUD_swordinventory_image = $Player/Camera2D/HUD/SwordInventoryImage
 onready var _node_HUD_swordhint_label = $Player/Camera2D/HUD/AttackHintLabel

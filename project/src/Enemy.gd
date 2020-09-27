@@ -2,19 +2,30 @@
 extends KinematicBody2D
 
 signal _hit_player
+
 const SPEED = 50
 const GRAVITY = 30
-export var _patrol_distance = 4.0
+
 var _move_direction = 0
 var elapsed = 0
 var _attck_anim = 0
 var _idle_check = true
 var _player_detected = false
 var _velocity = Vector2(0,0)
+
+export var _patrol_distance = 4.0
+
+onready var _player = get_node("/root/World/Player")
+onready var _enemy1 = get_node("/root/World/Enemy1")
+onready var _enemy2 = get_node("/root/World/Enemy2")
+onready var _enemy1_animator = get_node("/root/World/Enemy1/AnimatedSprite")
+onready var _enemy2_animator = get_node("/root/World/Enemy2/AnimatedSprite")
 onready var _animation_control = $AnimatedSprite
 onready var _detection_box = $Area2D/CollisionShape2D
 
 func _process(delta):
+	_player.connect("player_hit_enemy1", self, "_enemy1_has_been_defeated")
+	_player.connect("player_hit_enemy2", self, "_enemy2_has_been_defeated")
 	_patrol(delta)
 	
 	
@@ -58,16 +69,20 @@ func _attack():
 		emit_signal("_hit_player")
 		
 	
+func _enemy1_has_been_defeated():
+	_enemy1.set_process(false)
+	_enemy1_animator.play("death")
+	get_node("/root/World/Enemy1/CollisionShape2D").disabled = true
 	
-func _has_been_defeated():
-	_velocity = Vector2(0,0)
-	_velocity = move_and_slide(_velocity,Vector2.UP)
-	_velocity.x = lerp(_velocity.x,0,0.5)
-	_animation_control.play("death")
 	
-func _on_Area2D_area_entered(area):
+func _enemy2_has_been_defeated():
+	_enemy2.set_process(false)
+	_enemy2_animator.play("death")
+	get_node("/root/World/Enemy2/CollisionShape2D").disabled = true
+	
+func _on_Area2D_area_entered(_area):
 	_player_detected = true
 	
 
-func _on_Area2D_area_exited(area):
+func _on_Area2D_area_exited(_area):
 	_player_detected = false

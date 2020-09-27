@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Trees.png-df4f43e003b66c7bc0c938fef96a393d.stex"
+path="res://.import/trees.png-b515938d9724b64daa38782d07f7475d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/FreePlatformerNA/Foreground/Trees.png"
-dest_files=[ "res://.import/Trees.png-df4f43e003b66c7bc0c938fef96a393d.stex" ]
+source_file="res://assets/FreePlatformerNA/Foreground/trees.png"
+dest_files=[ "res://.import/trees.png-b515938d9724b64daa38782d07f7475d.stex" ]
 
 [params]
 
