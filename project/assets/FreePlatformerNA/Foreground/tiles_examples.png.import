@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tiles_examples.png-56b92a5a70d8c7f0f39e71eb1cebafe6.stex"
+path="res://.import/Tiles_Examples.png-260e856b07d0cafda215b8b5a01730c3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/FreePlatformerNA/Foreground/tiles_examples.png"
-dest_files=[ "res://.import/tiles_examples.png-56b92a5a70d8c7f0f39e71eb1cebafe6.stex" ]
+source_file="res://assets/FreePlatformerNA/Foreground/Tiles_Examples.png"
+dest_files=[ "res://.import/Tiles_Examples.png-260e856b07d0cafda215b8b5a01730c3.stex" ]
 
 [params]
 
