@@ -13,8 +13,8 @@ const JUMPFORCE := -550
 var _velocity := Vector2(0,0)
 var has_sword
 
-onready var _node_enemy_1 = get_node("/root/World/Enemy1")
-onready var _node_enemy_2 = get_node("/root/World/Enemy2")
+onready var _enemy_1 = get_node("/root/World/Enemy1")
+onready var _enemy_2 = get_node("/root/World/Enemy2")
 onready var _enemy_hitbox_1 = get_node("/root/World/Enemy1/Area2D")
 onready var _enemy_hitbox_2 = get_node("/root/World/Enemy2/Area2D")
 onready var _player_hitbox = $Area2D
@@ -22,8 +22,8 @@ onready var _animation_control = $AnimatedSprite
 
 func _ready():
 	has_sword = false
-	_node_enemy_1.connect("hit_player", self, "_on_player_hit")
-	_node_enemy_2.connect("hit_player", self, "_on_player_hit")
+	_enemy_1.connect("hit_player", self, "_on_player_hit")
+	_enemy_2.connect("hit_player", self, "_on_player_hit")
 	
 	
 func _physics_process(delta):
