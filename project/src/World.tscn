@@ -1,6 +1,6 @@
 [gd_scene load_steps=44 format=2]
 
-[ext_resource path="res://assets/FreePlatformerNA/Foreground/tileset.png" type="Texture" id=1]
+[ext_resource path="res://assets/FreePlatformerNA/Foreground/Tileset.png" type="Texture" id=1]
 [ext_resource path="res://src/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/FreePlatformerNA/Foreground/Trees.png" type="Texture" id=3]
 [ext_resource path="res://assets/taiga_asset_pack_v2/PNG/Props.png" type="Texture" id=4]
