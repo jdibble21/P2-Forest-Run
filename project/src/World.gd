@@ -1,12 +1,13 @@
+# Controls game progress, item pickups, and game end scenarios
 extends Node2D
 
-onready var _sword_pickup_animation = $CollectableSword/AnimatedSprite
-onready var _sword_pickup = $CollectableSword
-onready var _node_player = $Player
-onready var _node_HUD_gameover_label = $Player/Camera2D/HUD/GameOverLabel
-onready var _node_HUD_finishgame_label = $Player/Camera2D/HUD/FinishedGameLabel
-onready var _node_HUD_swordinventory_image = $Player/Camera2D/HUD/SwordInventoryImage
-onready var _node_HUD_swordhint_label = $Player/Camera2D/HUD/AttackHintLabel
+onready var _sword_pickup_animation := $CollectableSword/AnimatedSprite
+onready var _sword_pickup := $CollectableSword
+onready var _node_player := $Player
+onready var _node_HUD_gameover_label := $Player/Camera2D/HUD/GameOverLabel
+onready var _node_HUD_finishgame_label := $Player/Camera2D/HUD/FinishedGameLabel
+onready var _node_HUD_swordinventory_image := $Player/Camera2D/HUD/SwordInventoryImage
+onready var _node_HUD_swordhint_label := $Player/Camera2D/HUD/AttackHintLabel
 
 func _ready():
 	_node_player.connect("player_death", self, "_game_over")

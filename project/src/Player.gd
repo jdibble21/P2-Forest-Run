@@ -5,13 +5,14 @@ extends KinematicBody2D
 signal player_death
 signal player_hit_enemy1
 signal player_hit_enemy2
+
 const SPEED = 180
 const GRAVITY = 30
 const JUMPFORCE = -550
+
 var _velocity = Vector2(0,0)
-var _elapsed = 0
-var _attacking_now = false
-onready var has_sword
+var has_sword
+
 onready var _node_enemy_1 = get_node("/root/World/Enemy1")
 onready var _node_enemy_2 = get_node("/root/World/Enemy2")
 onready var _enemy_hitbox_1 = get_node("/root/World/Enemy1/Area2D")
@@ -53,7 +54,6 @@ func _physics_process(delta):
 
 
 func _play_attack_animation():
-	_attacking_now = true
 	if _player_hitbox.overlaps_area(_enemy_hitbox_1):
 			emit_signal("player_hit_enemy1")
 	if _player_hitbox.overlaps_area(_enemy_hitbox_2):
