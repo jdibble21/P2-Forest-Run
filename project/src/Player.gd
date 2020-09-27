@@ -6,11 +6,11 @@ signal player_death
 signal player_hit_enemy1
 signal player_hit_enemy2
 
-const SPEED = 180
-const GRAVITY = 30
-const JUMPFORCE = -550
+const SPEED := 180
+const GRAVITY := 30
+const JUMPFORCE := -550
 
-var _velocity = Vector2(0,0)
+var _velocity := Vector2(0,0)
 var has_sword
 
 onready var _node_enemy_1 = get_node("/root/World/Enemy1")
