@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/lightbandit_combat_idle_1.png-481df8b4b2778c9382c599a0c52d3ec3.stex"
+path="res://.import/lightbandit_run_2.png-ce35d073ee01858157e6fd8f28ffbdd5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Bandit/lightbandit_combat_idle_1.png"
-dest_files=[ "res://.import/lightbandit_combat_idle_1.png-481df8b4b2778c9382c599a0c52d3ec3.stex" ]
+source_file="res://assets/enemy/lightbandit_run_2.png"
+dest_files=[ "res://.import/lightbandit_run_2.png-ce35d073ee01858157e6fd8f28ffbdd5.stex" ]
 
 [params]
 

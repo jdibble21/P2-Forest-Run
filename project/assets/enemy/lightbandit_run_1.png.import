@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/lightbandit_attack_3.png-18612fb8b110a1c5400ec2ae13a2c20d.stex"
+path="res://.import/lightbandit_run_1.png-b4510bc968622ec31e1c0496031b6dc9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Bandit/lightbandit_attack_3.png"
-dest_files=[ "res://.import/lightbandit_attack_3.png-18612fb8b110a1c5400ec2ae13a2c20d.stex" ]
+source_file="res://assets/enemy/lightbandit_run_1.png"
+dest_files=[ "res://.import/lightbandit_run_1.png-b4510bc968622ec31e1c0496031b6dc9.stex" ]
 
 [params]
 

@@ -30,10 +30,9 @@ Github Pages: https://bsu-cs315.github.io/P2-Forest-Run/
 
 
 ## Game Instructions
+- While playing on GH Pages, you may need to click the game screen before input is recognized
 - To walk left and right, hold A and D, to jump, press W
 - To attack with sword, hold spacebar (once sword is found in level)
 - To reload the game, press R
-- <strong>Notable Bugs in GH Pages: </strong>
-- - The two enemies in the level appear invisible until you approach them, however this is not the case on the locally run version.  
-- - Tilesheets randomly disapear
+
 ## Third-Party Assets
