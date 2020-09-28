@@ -9,6 +9,7 @@ onready var _HUD_finishgame_label := $Player/Camera2D/HUD/FinishedGameLabel
 onready var _HUD_swordinventory_image := $Player/Camera2D/HUD/SwordInventoryImage
 onready var _HUD_swordhint_label := $Player/Camera2D/HUD/AttackHintLabel
 onready var _music_loop := $MusicLoop
+onready var _gameover_sound = $GameOver
 
 func _ready():
 	_player.connect("player_death", self, "_game_over")
@@ -40,6 +41,7 @@ func _on_Area2D_area_entered(_area):
 func _game_over():
 	_HUD_gameover_label.show()
 	_music_loop.stop()
+	_gameover_sound.play()
 
 
 func _on_FinishArea_entered(area):

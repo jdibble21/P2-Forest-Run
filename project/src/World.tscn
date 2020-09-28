@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://assets/FreePlatformerNA/Foreground/Tileset.png" type="Texture" id=1]
 [ext_resource path="res://src/Player.tscn" type="PackedScene" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://assets/custom_assets/spikes.png" type="Texture" id=14]
 [ext_resource path="res://src/HUD.tscn" type="PackedScene" id=15]
 [ext_resource path="res://assets/sound_assets/medieval_guitar_loop.ogg" type="AudioStream" id=16]
+[ext_resource path="res://assets/sound_assets/game_over_sound.ogg" type="AudioStream" id=17]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Tileset.png 0"
@@ -1063,6 +1064,9 @@ shape = SubResource( 28 )
 
 [node name="MusicLoop" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 16 )
+
+[node name="GameOver" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
 [connection signal="area_entered" from="SpikePit1/DeathArea" to="Player" method="_on_DeathArea_area_entered"]
 [connection signal="area_entered" from="SpikePit2/DeathArea" to="Player" method="_on_DeathArea_area_entered"]
 [connection signal="area_entered" from="SpikePit3/Death Area" to="Player" method="_on_DeathArea_area_entered"]
