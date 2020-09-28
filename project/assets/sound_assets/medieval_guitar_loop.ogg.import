@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/medieval_guitar_loop.ogg-a07c49c211e3a02d8c17127a3415f9f1.oggstr"
+
+[deps]
+
+source_file="res://assets/sound_assets/medieval_guitar_loop.ogg"
+dest_files=[ "res://.import/medieval_guitar_loop.ogg-a07c49c211e3a02d8c17127a3415f9f1.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -8,6 +8,7 @@ onready var _HUD_gameover_label := $Player/Camera2D/HUD/GameOverLabel
 onready var _HUD_finishgame_label := $Player/Camera2D/HUD/FinishedGameLabel
 onready var _HUD_swordinventory_image := $Player/Camera2D/HUD/SwordInventoryImage
 onready var _HUD_swordhint_label := $Player/Camera2D/HUD/AttackHintLabel
+onready var _music_loop := $MusicLoop
 
 func _ready():
 	_player.connect("player_death", self, "_game_over")
@@ -16,14 +17,14 @@ func _ready():
 	_HUD_swordinventory_image.hide()
 	_HUD_swordhint_label.hide()
 	_HUD_finishgame_label.hide()
-	
+	_music_loop.play()
 	
 func _process(_delta):
 	if Input.is_action_just_pressed("reload_game"):
 		get_tree().reload_current_scene()
 
 
-func _on_Area2D_area_entered(area):
+func _on_Area2D_area_entered(_area):
 	_sword_pickup.hide()
 	$Player.has_sword = true
 	_HUD_swordinventory_image.show()
@@ -38,6 +39,7 @@ func _on_Area2D_area_entered(area):
 	
 func _game_over():
 	_HUD_gameover_label.show()
+	_music_loop.stop()
 
 
 func _on_FinishArea_entered(area):
