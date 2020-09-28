@@ -23,9 +23,12 @@ onready var _enemy2_animator := get_node("/root/World/Enemy2/AnimatedSprite")
 onready var _animation_control := $AnimatedSprite
 onready var _detection_box := $Area2D/CollisionShape2D
 
-func _process(delta):
+func _ready():
 	_player.connect("player_hit_enemy1", self, "_enemy1_has_been_defeated")
 	_player.connect("player_hit_enemy2", self, "_enemy2_has_been_defeated")
+	
+	
+func _process(delta):
 	_patrol(delta)
 	
 	

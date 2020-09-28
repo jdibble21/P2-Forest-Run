@@ -1,8 +1,8 @@
 # Controls game progress, item pickups, and game end scenarios
 extends Node2D
 
-onready var _sword_pickup_animation := $CollectableSword/AnimatedSprite
-onready var _sword_pickup := $CollectableSword
+onready var _sword_pickup_animation := $AreaSwordPickup/AnimatedSprite
+onready var _sword_pickup := $AreaSwordPickup
 onready var _player := $Player
 onready var _HUD_gameover_label := $Player/Camera2D/HUD/GameOverLabel
 onready var _HUD_finishgame_label := $Player/Camera2D/HUD/FinishedGameLabel
@@ -18,7 +18,7 @@ func _ready():
 	_HUD_finishgame_label.hide()
 	
 	
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("reload_game"):
 		get_tree().reload_current_scene()
 

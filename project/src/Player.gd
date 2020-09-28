@@ -26,7 +26,7 @@ func _ready():
 	_enemy_2.connect("hit_player", self, "_on_player_hit")
 	
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	if Input.is_action_pressed("attack") and has_sword:
 		_play_attack_animation()
 		return
@@ -74,7 +74,7 @@ func _on_player_hit():
 	set_physics_process(false)
 	
 
-func _on_DeathArea_area_entered(area):
+func _on_DeathArea_area_entered(_area):
 	emit_signal("player_death")
 	_animation_control.play("death")
 	set_physics_process(false)
