@@ -866,10 +866,10 @@ points = PoolVector2Array( 48, 9.14157, 0, 8.909, 0, 4.25764, 48, 3.7925 )
 3/shapes = [  ]
 3/z_index = 0
 
-[sub_resource type="CircleShape2D" id=27]
+[sub_resource type="CircleShape2D" id=26]
 radius = 13.7239
 
-[sub_resource type="SpriteFrames" id=26]
+[sub_resource type="SpriteFrames" id=27]
 animations = [ {
 "frames": [ ExtResource( 12 ), ExtResource( 13 ) ],
 "loop": true,
@@ -1049,11 +1049,11 @@ position = Vector2( 279.16, -129.923 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaSwordPickup"]
 position = Vector2( 469.452, 323.79 )
-shape = SubResource( 27 )
+shape = SubResource( 26 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="AreaSwordPickup"]
 position = Vector2( 469.224, 326.734 )
-frames = SubResource( 26 )
+frames = SubResource( 27 )
 animation = "standby"
 
 [node name="FinishDetect" type="Area2D" parent="."]
@@ -1067,6 +1067,8 @@ stream = ExtResource( 16 )
 
 [node name="GameOver" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 17 )
+
+[node name="Enemy" parent="." instance=ExtResource( 10 )]
 [connection signal="area_entered" from="SpikePit1/DeathArea" to="Player" method="_on_DeathArea_area_entered"]
 [connection signal="area_entered" from="SpikePit2/DeathArea" to="Player" method="_on_DeathArea_area_entered"]
 [connection signal="area_entered" from="SpikePit3/Death Area" to="Player" method="_on_DeathArea_area_entered"]

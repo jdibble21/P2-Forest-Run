@@ -22,6 +22,7 @@ onready var _animation_control = $AnimatedSprite
 onready var _sword_swing_sound = $SwordSwing
 
 func _ready():
+	print(_enemy_1.get_position_in_parent())
 	has_sword = false
 	_enemy_1.connect("hit_player", self, "_on_player_hit")
 	_enemy_2.connect("hit_player", self, "_on_player_hit")
