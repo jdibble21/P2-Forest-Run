@@ -29,12 +29,11 @@ func _ready():
 	
 func _physics_process(_delta):
 	if Input.is_action_pressed("attack") and has_sword:
-		_sword_swing_sound.play()
+		_sword_swing_sound.play() # issues here
 		_play_attack_animation()
 		return
 	if is_on_floor() and (!Input.is_action_pressed("move_left") and (!Input.is_action_pressed("move_right"))):
 		_play_idle_animation()
-		_sword_swing_sound.stop()
 	if Input.is_action_pressed("move_right"):
 		_velocity.x = SPEED 
 		_animation_control.play("run")
