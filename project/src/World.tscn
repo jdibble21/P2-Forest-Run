@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://assets/FreePlatformerNA/Foreground/Tileset.png" type="Texture" id=1]
 [ext_resource path="res://src/Player.tscn" type="PackedScene" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://assets/FreePlatformerNA/Background/bg_front.png" type="Texture" id=7]
 [ext_resource path="res://assets/FreePlatformerNA/Background/clouds_front.png" type="Texture" id=8]
 [ext_resource path="res://assets/FreePlatformerNA/Foreground/tiles_examples.png" type="Texture" id=9]
-[ext_resource path="res://src/Enemy.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/World.gd" type="Script" id=11]
 [ext_resource path="res://assets/custom_assets/sword_1.png" type="Texture" id=12]
 [ext_resource path="res://assets/custom_assets/sword_2.png" type="Texture" id=13]
@@ -1027,13 +1026,6 @@ scale = Vector2( 2.20021, 3.60397 )
 texture = ExtResource( 7 )
 centered = false
 
-[node name="Enemy1" parent="." instance=ExtResource( 10 )]
-position = Vector2( 1403.41, 213.242 )
-_patrol_distance = 3.0
-
-[node name="Enemy2" parent="." instance=ExtResource( 10 )]
-position = Vector2( 1984.34, 229.023 )
-
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 104.71, 259.415 )
 
@@ -1067,8 +1059,6 @@ stream = ExtResource( 16 )
 
 [node name="GameOver" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 17 )
-
-[node name="Enemy" parent="." instance=ExtResource( 10 )]
 [connection signal="area_entered" from="SpikePit1/DeathArea" to="Player" method="_on_DeathArea_area_entered"]
 [connection signal="area_entered" from="SpikePit2/DeathArea" to="Player" method="_on_DeathArea_area_entered"]
 [connection signal="area_entered" from="SpikePit3/Death Area" to="Player" method="_on_DeathArea_area_entered"]

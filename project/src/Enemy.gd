@@ -15,18 +15,11 @@ var _velocity := Vector2(0,0)
 
 export var _patrol_distance := 4.0
 
-onready var _player := get_node("/root/World/Player")
-#onready var _enemy1 := get_node("/root/World/Enemy1")
-#onready var _enemy2 := get_node("/root/World/Enemy2")
-#onready var _enemy1_animator := get_node("/root/World/Enemy1/AnimatedSprite")
-#onready var _enemy2_animator := get_node("/root/World/Enemy2/AnimatedSprite")
 onready var _animation_control := $AnimatedSprite
 onready var _detection_box := $Area2D/CollisionShape2D
 
 func _ready():
-	_player.connect("player_hit_enemy1", self, "_enemy1_has_been_defeated")
-	_player.connect("player_hit_enemy2", self, "_enemy2_has_been_defeated")
-	
+	pass
 	
 func _process(delta):
 	_patrol(delta)

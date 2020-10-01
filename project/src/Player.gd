@@ -13,19 +13,13 @@ const JUMPFORCE := -550
 var _velocity := Vector2(0,0)
 var has_sword
 
-onready var _enemy_1 = get_node("/root/World/Enemy1")
-onready var _enemy_2 = get_node("/root/World/Enemy2")
-onready var _enemy_hitbox_1 = get_node("/root/World/Enemy1/Area2D")
-onready var _enemy_hitbox_2 = get_node("/root/World/Enemy2/Area2D")
+
 onready var _player_hitbox = $Area2D
 onready var _animation_control = $AnimatedSprite
 onready var _sword_swing_sound = $SwordSwing
 
 func _ready():
-	print(_enemy_1.get_position_in_parent())
 	has_sword = false
-	_enemy_1.connect("hit_player", self, "_on_player_hit")
-	_enemy_2.connect("hit_player", self, "_on_player_hit")
 	
 	
 func _physics_process(_delta):
@@ -58,10 +52,6 @@ func _physics_process(_delta):
 
 
 func _play_attack_animation():
-	if _player_hitbox.overlaps_area(_enemy_hitbox_1):
-			emit_signal("player_hit_enemy1")
-	if _player_hitbox.overlaps_area(_enemy_hitbox_2):
-			emit_signal("player_hit_enemy2")
 	_animation_control.play("attack")
 
 
@@ -70,13 +60,6 @@ func _play_idle_animation():
 		_animation_control.play("idle_sword")
 	if !(has_sword):
 		_animation_control.play("idle")
-
-
-func _on_player_hit():
-	emit_signal("player_death")
-	_animation_control.play("death")
-	set_physics_process(false)
-	
 
 func _on_DeathArea_area_entered(_area):
 	emit_signal("player_death")
