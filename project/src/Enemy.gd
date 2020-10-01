@@ -2,6 +2,7 @@
 extends KinematicBody2D
 
 signal hit_player
+signal defeated
 
 const SPEED := 50
 const GRAVITY := 30
