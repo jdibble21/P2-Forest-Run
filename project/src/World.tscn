@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://assets/FreePlatformerNA/Foreground/Tileset.png" type="Texture" id=1]
 [ext_resource path="res://src/Player.tscn" type="PackedScene" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://assets/FreePlatformerNA/Background/bg_front.png" type="Texture" id=7]
 [ext_resource path="res://assets/FreePlatformerNA/Background/clouds_front.png" type="Texture" id=8]
 [ext_resource path="res://assets/FreePlatformerNA/Foreground/tiles_examples.png" type="Texture" id=9]
-[ext_resource path="res://src/Enemy.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/World.gd" type="Script" id=11]
 [ext_resource path="res://assets/custom_assets/sword_1.png" type="Texture" id=12]
 [ext_resource path="res://assets/custom_assets/sword_2.png" type="Texture" id=13]
@@ -866,10 +865,10 @@ points = PoolVector2Array( 48, 9.14157, 0, 8.909, 0, 4.25764, 48, 3.7925 )
 3/shapes = [  ]
 3/z_index = 0
 
-[sub_resource type="CircleShape2D" id=27]
+[sub_resource type="CircleShape2D" id=26]
 radius = 13.7239
 
-[sub_resource type="SpriteFrames" id=26]
+[sub_resource type="SpriteFrames" id=27]
 animations = [ {
 "frames": [ ExtResource( 12 ), ExtResource( 13 ) ],
 "loop": true,
@@ -1027,13 +1026,6 @@ scale = Vector2( 2.20021, 3.60397 )
 texture = ExtResource( 7 )
 centered = false
 
-[node name="Enemy1" parent="." instance=ExtResource( 10 )]
-position = Vector2( 1403.41, 213.242 )
-_patrol_distance = 3.0
-
-[node name="Enemy2" parent="." instance=ExtResource( 10 )]
-position = Vector2( 1984.34, 229.023 )
-
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 104.71, 259.415 )
 
@@ -1049,11 +1041,11 @@ position = Vector2( 279.16, -129.923 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaSwordPickup"]
 position = Vector2( 469.452, 323.79 )
-shape = SubResource( 27 )
+shape = SubResource( 26 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="AreaSwordPickup"]
 position = Vector2( 469.224, 326.734 )
-frames = SubResource( 26 )
+frames = SubResource( 27 )
 animation = "standby"
 
 [node name="FinishDetect" type="Area2D" parent="."]

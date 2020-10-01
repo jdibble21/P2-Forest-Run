@@ -1,6 +1,9 @@
 # Controls game progress, item pickups, and game end scenarios
 extends Node2D
 
+signal game_over
+const ENEMY_NODE = preload("res://src/Enemy.tscn")
+
 onready var _sword_pickup_animation := $AreaSwordPickup/AnimatedSprite
 onready var _sword_pickup := $AreaSwordPickup
 onready var _player := $Player
@@ -12,6 +15,15 @@ onready var _music_loop := $MusicLoop
 onready var _gameover_sound = $GameOver
 
 func _ready():
+	var _enemy_one = ENEMY_NODE.instance()
+	var _enemy_two = ENEMY_NODE.instance()
+	_enemy_one.position = Vector2(1403.41,214.242)
+	_enemy_two.position = Vector2(1984.34,229.023)
+	_enemy_one.connect("hit_player", self, "_on_player_hit")
+	_enemy_two.connect("hit_player", self, "_on_player_hit")
+	self.add_child(_enemy_one)
+	self.add_child(_enemy_two)
+	self.connect("game_over", self, "_game_over")
 	_player.connect("player_death", self, "_game_over")
 	_sword_pickup_animation.play("standby")
 	_HUD_gameover_label.hide()
@@ -20,11 +32,18 @@ func _ready():
 	_HUD_finishgame_label.hide()
 	_music_loop.play()
 	
+	
 func _process(_delta):
 	if Input.is_action_just_pressed("reload_game"):
 		get_tree().reload_current_scene()
 
 
+func _on_player_hit():
+	emit_signal("game_over")
+	$Player/AnimatedSprite.play("death")
+	_player.set_physics_process(false)
+	
+	
 func _on_Area2D_area_entered(_area):
 	_sword_pickup.hide()
 	$Player.has_sword = true

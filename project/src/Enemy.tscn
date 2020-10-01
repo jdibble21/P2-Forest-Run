@@ -32,20 +32,20 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 22 ) ],
+"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 13 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 14 ) ],
 "loop": true,
-"name": "death",
-"speed": 5.0
+"name": "patrol",
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 4 ), ExtResource( 16 ), ExtResource( 12 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 15 ) ],
 "loop": true,
 "name": "attack",
 "speed": 17.0
 }, {
-"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 13 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 14 ) ],
+"frames": [ ExtResource( 22 ) ],
 "loop": true,
-"name": "patrol",
-"speed": 10.0
+"name": "death",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=3]
