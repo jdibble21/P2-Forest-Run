@@ -13,24 +13,20 @@ onready var _HUD_swordinventory_image := $Player/Camera2D/HUD/SwordInventoryImag
 onready var _HUD_swordhint_label := $Player/Camera2D/HUD/AttackHintLabel
 onready var _music_loop := $MusicLoop
 onready var _gameover_sound = $GameOver
+onready var _win_sound = $GameWin
 onready var _enemy_one
-onready var _enemy_two
 
 func _ready():
 	_enemy_one = ENEMY_NODE.instance()
-	_enemy_two = ENEMY_NODE.instance()
 	_enemy_one.position = Vector2(1403.41,214.242)
-	_enemy_two.position = Vector2(1984.34,229.023)
+	_enemy_one.id = 1
 	_enemy_one.connect("hit_player", self, "_on_player_hit")
 	_enemy_one.connect("defeated", self, "_on_enemy_defeat")
-	_enemy_two.connect("hit_player", self, "_on_player_hit")
-	_enemy_two.connect("defeated", self, "_on_enemy_defeat")
 	self.add_child(_enemy_one)
-	self.add_child(_enemy_two)
 	self.connect("game_over", self, "_game_over")
 	_player.connect("player_death", self, "_game_over")
 	_player.connect("enemy1_hit", self, "_on_enemy1_defeat")
-	_player.connect("enemy2_hit", self, "_on_enemy2_defeat")
+	
 	_sword_pickup_animation.play("standby")
 	_HUD_gameover_label.hide()
 	_HUD_swordinventory_image.hide()
@@ -53,9 +49,6 @@ func _on_enemy1_defeat():
 	_enemy_one._defeat()
 	
 	
-func _on_enemy2_defeat():
-	_enemy_two._defeat()
-	
 func _on_sword_area_entered(_area):
 	_sword_pickup.hide()
 	$Player.has_sword = true
@@ -69,8 +62,6 @@ func _on_sword_area_entered(_area):
 	_HUD_swordhint_label.hide()
 	
 	
-
-	
 func _game_over():
 	_HUD_gameover_label.show()
 	_music_loop.stop()
@@ -78,4 +69,6 @@ func _game_over():
 
 
 func _on_FinishArea_entered(area):
+	_music_loop.stop()
 	_HUD_finishgame_label.show()
+	_win_sound.play()

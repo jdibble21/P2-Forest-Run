@@ -14,6 +14,7 @@ var _idle_check = true
 var _player_detected := false
 var _velocity := Vector2(0,0)
 
+export var id := 0
 export var _patrol_distance := 4.0
 onready var _animation_control := $AnimatedSprite
 onready var _detection_box := $Area2D/CollisionShape2D

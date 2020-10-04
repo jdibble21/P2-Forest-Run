@@ -18,7 +18,7 @@ var is_attacking = false
 onready var _player_hitbox = $Area2D
 onready var _animation_control = $AnimatedSprite
 onready var _sword_swing_sound = $SwordSwing
-
+onready var _world = get_tree().get_root().get_node("World")
 func _ready():
 	has_sword = false
 	
@@ -58,15 +58,9 @@ func _play_attack_animation():
 	_animation_control.play("attack")
 	
 func _check_for_enemy():
-	var overlap_area = ""
-	if !($Area2D.get_overlapping_areas().empty()):
-		overlap_area = str($Area2D.get_overlapping_areas()[0])
-		print(overlap_area)
-		if overlap_area == "[Area2D:1526]":
-			emit_signal("enemy1_hit")
-		if overlap_area == "[Area2D:1532]":
-			emit_signal("enemy2_hit")
-			print("enemty 2")
+	var enemy = _world._enemy_one
+	if enemy._player_detected:
+		enemy._defeat()
 func _play_idle_animation():
 	if has_sword:
 		_animation_control.play("idle_sword")
