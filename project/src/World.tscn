@@ -1056,11 +1056,13 @@ shape = SubResource( 28 )
 
 [node name="MusicLoop" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 16 )
+volume_db = -15.0
 
 [node name="GameOver" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 17 )
+volume_db = -15.0
 [connection signal="area_entered" from="SpikePit1/DeathArea" to="Player" method="_on_DeathArea_area_entered"]
 [connection signal="area_entered" from="SpikePit2/DeathArea" to="Player" method="_on_DeathArea_area_entered"]
 [connection signal="area_entered" from="SpikePit3/Death Area" to="Player" method="_on_DeathArea_area_entered"]
-[connection signal="area_entered" from="AreaSwordPickup" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_entered" from="AreaSwordPickup" to="." method="_on_sword_area_entered"]
 [connection signal="area_entered" from="FinishDetect" to="." method="_on_FinishArea_entered"]
