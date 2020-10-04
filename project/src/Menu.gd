@@ -8,6 +8,7 @@ func _ready():
 	$TransitionLayer.hide()
 	$AnimationPlayer.play("title_loop")
 	
+	
 func _on_Play_Button_pressed():
 	$TransitionLayer.show()
 	$Camera2D/HUD/Button.hide()

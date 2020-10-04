@@ -11,9 +11,8 @@ const GRAVITY := 30
 const JUMPFORCE := -550
 
 var _velocity := Vector2(0,0)
-var has_sword
-var is_attacking = false
-
+var has_sword = false
+var is_attacking := false
 
 onready var _player_hitbox = $Area2D
 onready var _animation_control = $AnimatedSprite

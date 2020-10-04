@@ -16,11 +16,10 @@ var _velocity := Vector2(0,0)
 
 export var id := 0
 export var _patrol_distance := 4.0
+
 onready var _animation_control := $AnimatedSprite
 onready var _detection_box := $Area2D/CollisionShape2D
 onready var _ripple_animation = $DeathRippleEffect
-func _ready():
-	pass
 	
 func _process(delta):
 	_patrol(delta)
@@ -76,7 +75,6 @@ func _defeat():
 	
 func _on_Area2D_area_entered(_area):
 	_player_detected = true
-	emit_signal("_player_is_detected",self, $Area2D)
 
 
 func _on_Area2D_area_exited(_area):

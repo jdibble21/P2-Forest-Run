@@ -46,7 +46,6 @@ func _process(_delta):
 	if Input.is_action_just_pressed("return_to_menu"):
 		queue_free()
 		get_tree().get_root().add_child(_menu_screen.instance())
-	
 		
 		
 func _on_player_hit():
@@ -101,6 +100,7 @@ func _on_FinishArea_entered(area):
 	_calculate_score()
 	_HUD_score_label.show()
 	
+	
 func _calculate_score():
 	var total_score
 	var time_value = $Player/Camera2D/HUD.rounded_time
@@ -113,6 +113,7 @@ func _calculate_score():
 	if !_game_over:
 		total_score = total_score + 6
 	_HUD_score_label.text = "Score: " + str(total_score)
+	
 	
 func _get_time_score(time):
 	var score = 0

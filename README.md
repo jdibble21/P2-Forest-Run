@@ -1,7 +1,7 @@
 # Project 2, Iteration 2: Spit and Polish
-First Iteration of a multi part project by Jacob Dibble
+Second Iteration of a multi part project by Jacob Dibble
 
-2D Platforming game set in a forest environment with spike pits and two enemy sprites
+2D Platforming game set in a forest environment with spike pits and an enemy sprite
 
 Github Pages: https://bsu-cs315.github.io/P2-Forest-Run/
 
@@ -13,7 +13,7 @@ Github Pages: https://bsu-cs315.github.io/P2-Forest-Run/
 - To return to the menu, press Escape
 
 ## Project Report
-The most challenging part this iteration was refactoring (some of) my not so clean code that violated OOP principles. It was difficult to figure out how to instance separate enemy sprites and yet use the same script for both while individually interacting with them, and unfortunately did not get all the way done with that part. However, I was more successfull in turning some repetiive lines into resuable functions. 
+The most challenging part this iteration was refactoring (some of) my not so clean code that violated OOP principles. It was difficult to figure out how to instance separate enemy sprites and yet use the same script for both while individually interacting with them, and unfortunately did not get all the way done with that part. I was also unable to figure out a solution for not using get_node() in one or two lines. However, I was more successfull in turning some repetiive lines into resuable functions. 
 
 First <em>Juice</em>: I created a flickering animation similar to older arcade-style games when the enemy in the level is defeated, making the defeat animation more clear and more visually appealing.
 
