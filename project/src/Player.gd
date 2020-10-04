@@ -17,15 +17,14 @@ var is_attacking = false
 
 onready var _player_hitbox = $Area2D
 onready var _animation_control = $AnimatedSprite
-onready var _sword_swing_sound = $SwordSwing
 onready var _world = get_tree().get_root().get_node("World")
+
 func _ready():
 	has_sword = false
 	
 	
 func _physics_process(_delta):
 	if Input.is_action_pressed("attack") and has_sword:
-		#_sword_swing_sound.play() issues here
 		is_attacking = true
 		_check_for_enemy()
 		_play_attack_animation()
@@ -57,6 +56,7 @@ func _physics_process(_delta):
 func _play_attack_animation():
 	_animation_control.play("attack")
 	
+	
 func _check_for_enemy():
 	var enemy = _world._enemy_one
 	if enemy._player_detected:
@@ -66,6 +66,7 @@ func _play_idle_animation():
 		_animation_control.play("idle_sword")
 	if !(has_sword):
 		_animation_control.play("idle")
+
 
 func _on_DeathArea_area_entered(_area):
 	emit_signal("player_death")
