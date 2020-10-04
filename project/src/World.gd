@@ -1,4 +1,4 @@
-# Controls game progress, item pickups, and game events
+# Controls game progress, item pickups, scoring, and game events
 extends Node2D
 
 signal game_over

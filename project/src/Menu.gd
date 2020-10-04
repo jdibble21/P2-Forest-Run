@@ -1,3 +1,5 @@
+# Handles button press to switch to gameplay screen, and applies
+# transition animation
 extends Node2D
 
 var _gameplay_scene = preload("res://src/World.tscn")

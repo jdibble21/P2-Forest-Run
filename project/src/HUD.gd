@@ -1,9 +1,9 @@
+# Updates the HUD time every second
 extends CanvasLayer
 
 var _time := 0.0
 var rounded_time
 onready var _time_label := $TimerLabel
-# Called when the node enters the scene tree for the first time.
 
 func _process(delta):
 	_time += delta
