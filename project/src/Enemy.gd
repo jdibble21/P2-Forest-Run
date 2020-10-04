@@ -3,7 +3,6 @@ extends KinematicBody2D
 
 signal hit_player
 signal defeated(node)
-signal _player_is_detected(node,area)
 const SPEED := 50
 const GRAVITY := 30
 

@@ -31,7 +31,7 @@ func _ready():
 	_enemy_one.connect("defeated", self, "_on_enemy_defeat")
 	self.add_child(_enemy_one)
 	self.connect("game_over", self, "_game_over")
-	_player.connect("player_death", self, "_game_over")
+	_player.connect("player_death", self, "_on_game_over")
 	_player.connect("enemy1_hit", self, "_on_enemy1_defeat")
 	_sword_pickup_animation.play("standby")
 	_music_loop.play()
@@ -80,7 +80,7 @@ func _on_sword_area_entered(_area):
 	_HUD_swordhint_label.hide()
 	
 	
-func _game_over():
+func _on_game_over():
 	_game_over = true
 	_player.set_physics_process(false)
 	_HUD_gameover_label.show()
@@ -133,5 +133,3 @@ func _get_time_score(time):
 		if time > 10:
 			score = 10
 	return score
-		
-		
