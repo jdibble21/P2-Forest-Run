@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/custom_assets/sword_1.png" type="Texture" id=1]
 [ext_resource path="res://assets/font_assets/Swansea-q3pd.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/font_assets/SwanseaBold-D0ox.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://src/HUD.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 2 )
@@ -16,7 +17,11 @@ font_data = ExtResource( 2 )
 [sub_resource type="DynamicFont" id=4]
 font_data = ExtResource( 3 )
 
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 3 )
+
 [node name="HUD" type="CanvasLayer"]
+script = ExtResource( 4 )
 
 [node name="InventoryLabel" type="Label" parent="."]
 anchor_left = 1.0
@@ -86,6 +91,23 @@ custom_fonts/font = SubResource( 4 )
 text = "YOU WIN!
 Press R to play again or ESC to return to menu"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="TimerLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -20.0
+margin_top = 18.0
+margin_right = 20.0
+margin_bottom = 39.0
+custom_fonts/font = SubResource( 5 )
+text = "Time
+"
 __meta__ = {
 "_edit_use_anchors_": false
 }

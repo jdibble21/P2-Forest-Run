@@ -879,7 +879,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=28]
-extents = Vector2( 59.0928, 12.5335 )
+extents = Vector2( 18.9551, 12.5335 )
 
 [sub_resource type="Animation" id=29]
 resource_name = "transition"
