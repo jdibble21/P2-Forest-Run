@@ -17,6 +17,7 @@ onready var _HUD_gameover_label := $Player/Camera2D/HUD/GameOverLabel
 onready var _HUD_finishgame_label := $Player/Camera2D/HUD/FinishedGameLabel
 onready var _HUD_swordinventory_image := $Player/Camera2D/HUD/SwordInventoryImage
 onready var _HUD_swordhint_label := $Player/Camera2D/HUD/AttackHintLabel
+onready var _HUD_score_label := $Player/Camera2D/HUD/FinalScoreLabel
 onready var _music_loop := $MusicLoop
 onready var _gameover_sound = $GameOver
 onready var _win_sound = $GameWin
@@ -58,6 +59,7 @@ func _hide_labels():
 	_HUD_swordinventory_image.hide()
 	_HUD_swordhint_label.hide()
 	_HUD_finishgame_label.hide()
+	_HUD_score_label.hide()
 
 
 func _on_enemy1_defeat():
@@ -86,6 +88,7 @@ func _game_over():
 	_music_loop.stop()
 	_gameover_sound.play()
 	_calculate_score()
+	_HUD_score_label.show()
 
 
 func _on_FinishArea_entered(area):
@@ -95,6 +98,7 @@ func _on_FinishArea_entered(area):
 	_HUD.set_process(false)
 	_win_sound.play()
 	_calculate_score()
+	_HUD_score_label.show()
 	
 func _calculate_score():
 	var total_score
@@ -105,18 +109,25 @@ func _calculate_score():
 		total_score = total_score + 10
 	if _enemy_defeat:
 		total_score = total_score + 15
+	_HUD_score_label.text = "Score: " + str(total_score)
 	
 func _get_time_score(time):
 	var score = 0
 	if !_game_over:
 		if time <= 15:
-			score = 20
-		if time >= 16 and time < 20:
-			score = 15
+			score = 25
+		if time >= 16 and time < 18:
+			score = 17
+		if time >= 18 and time < 20:
+			score = 13
 		if time >= 20 and time < 25:
 			score = 10
 		if time >=26:
 			score = 5
+	if _game_over:
+		score = 5
+		if time > 10:
+			score = 10
 	return score
 		
 		
