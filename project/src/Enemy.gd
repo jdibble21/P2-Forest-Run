@@ -19,7 +19,7 @@ export var _patrol_distance := 4.0
 
 onready var _animation_control := $AnimatedSprite
 onready var _detection_box := $Area2D/CollisionShape2D
-onready var _ripple_animation = $DeathRippleEffect
+onready var _ripple_animation := $DeathRippleEffect
 	
 func _process(delta):
 	_patrol(delta)

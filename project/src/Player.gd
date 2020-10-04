@@ -60,6 +60,8 @@ func _check_for_enemy():
 	var enemy = _world._enemy_one
 	if enemy._player_detected:
 		enemy._defeat()
+		
+		
 func _play_idle_animation():
 	if has_sword:
 		_animation_control.play("idle_sword")
