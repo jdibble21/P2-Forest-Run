@@ -61,9 +61,10 @@ func _check_for_enemy():
 	var overlap_area = ""
 	if !($Area2D.get_overlapping_areas().empty()):
 		overlap_area = str($Area2D.get_overlapping_areas()[0])
+		print(overlap_area)
 		if overlap_area == "[Area2D:1526]":
 			emit_signal("enemy1_hit")
-		if overlap_area == "[Area2D:2564]":
+		if overlap_area == "[Area2D:1532]":
 			emit_signal("enemy2_hit")
 			print("enemty 2")
 func _play_idle_animation():

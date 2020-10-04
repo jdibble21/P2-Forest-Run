@@ -30,6 +30,7 @@ func _ready():
 	self.connect("game_over", self, "_game_over")
 	_player.connect("player_death", self, "_game_over")
 	_player.connect("enemy1_hit", self, "_on_enemy1_defeat")
+	_player.connect("enemy2_hit", self, "_on_enemy2_defeat")
 	_sword_pickup_animation.play("standby")
 	_HUD_gameover_label.hide()
 	_HUD_swordinventory_image.hide()
@@ -53,7 +54,7 @@ func _on_enemy1_defeat():
 	
 	
 func _on_enemy2_defeat():
-	_enemy_two.defeat()
+	_enemy_two._defeat()
 	
 func _on_sword_area_entered(_area):
 	_sword_pickup.hide()
