@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://assets/font_assets/Swansea-q3pd.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/font_assets/SwanseaBold-D0ox.ttf" type="DynamicFontData" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/FreePlatformerNA/Background/bg_back.png" type="Texture" id=7]
 [ext_resource path="res://assets/FreePlatformerNA/Background/bg_front.png" type="Texture" id=8]
 [ext_resource path="res://src/Menu.gd" type="Script" id=9]
+[ext_resource path="res://assets/custom_assets/transition_screen.png" type="Texture" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -574,6 +575,60 @@ font_data = ExtResource( 1 )
 23/shapes = [  ]
 23/z_index = 0
 
+[sub_resource type="Animation" id=8]
+resource_name = "title_loop"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera2D/HUD/TitleLabel:margin_top")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ -577.0, -436.0, -245.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Camera2D/HUD/TitleLabel:margin_bottom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ -517.0, -376.0, -185.0 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "transition"
+tracks/0/type = "value"
+tracks/0/path = NodePath("TransitionLayer:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 25.3136, 3.84291 ), Vector2( 25.3136, 7.34052 ), Vector2( 32.0757, 11.745 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TransitionLayer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 619.996, -59.4783 ), Vector2( 619.996, 82.1746 ), Vector2( 792.431, 260.556 ) ]
+}
+
 [node name="Menu" type="Node2D"]
 script = ExtResource( 9 )
 
@@ -583,17 +638,17 @@ anchor_mode = 0
 current = true
 zoom = Vector2( 0.6, 0.6 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+[node name="HUD" type="CanvasLayer" parent="Camera2D"]
 
-[node name="TitleLabel" type="Label" parent="Camera2D/CanvasLayer"]
+[node name="TitleLabel" type="Label" parent="Camera2D/HUD"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -145.5
-margin_top = -222.0
+margin_top = -245.0
 margin_right = 213.5
-margin_bottom = -162.0
+margin_bottom = -185.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.0941176, 0.305882, 0.0784314, 1 )
 custom_constants/shadow_offset_x = 1
@@ -603,7 +658,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="Camera2D/CanvasLayer"]
+[node name="Button" type="Button" parent="Camera2D/HUD"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -618,7 +673,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NoteLabel" type="Label" parent="Camera2D/CanvasLayer"]
+[node name="NoteLabel" type="Label" parent="Camera2D/HUD"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -635,7 +690,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CreatedLabel" type="Label" parent="Camera2D/CanvasLayer"]
+[node name="CreatedLabel" type="Label" parent="Camera2D/HUD"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -688,4 +743,13 @@ position = Vector2( 0, -39.685 )
 scale = Vector2( 2.8025, 2.07092 )
 texture = ExtResource( 8 )
 centered = false
-[connection signal="pressed" from="Camera2D/CanvasLayer/Button" to="." method="_on_Play_Button_pressed"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/title_loop = SubResource( 8 )
+anims/transition = SubResource( 7 )
+
+[node name="TransitionLayer" type="Sprite" parent="."]
+position = Vector2( 792.431, 260.556 )
+scale = Vector2( 32.0757, 11.745 )
+texture = ExtResource( 10 )
+[connection signal="pressed" from="Camera2D/HUD/Button" to="." method="_on_Play_Button_pressed"]

@@ -4,6 +4,7 @@ extends Node2D
 signal game_over
 const ENEMY_NODE = preload("res://src/Enemy.tscn")
 
+onready var _menu_screen = load("res://src/Menu.tscn")
 onready var _sword_pickup_animation := $AreaSwordPickup/AnimatedSprite
 onready var _sword_pickup := $AreaSwordPickup
 onready var _player := $Player
@@ -26,24 +27,30 @@ func _ready():
 	self.connect("game_over", self, "_game_over")
 	_player.connect("player_death", self, "_game_over")
 	_player.connect("enemy1_hit", self, "_on_enemy1_defeat")
-	
 	_sword_pickup_animation.play("standby")
-	_HUD_gameover_label.hide()
-	_HUD_swordinventory_image.hide()
-	_HUD_swordhint_label.hide()
-	_HUD_finishgame_label.hide()
 	_music_loop.play()
+	_hide_labels()
+	$AnimationPlayer.play("transition")
 	
 	
 func _process(_delta):
 	if Input.is_action_just_pressed("reload_game"):
 		get_tree().reload_current_scene()
-
+	if Input.is_action_just_pressed("return_to_menu"):
+		queue_free()
+		get_tree().get_root().add_child(_menu_screen.instance())
+		
+		
 func _on_player_hit():
 	emit_signal("game_over")
 	$Player/AnimatedSprite.play("death")
 	_player.set_physics_process(false)
 	
+func _hide_labels():
+	_HUD_gameover_label.hide()
+	_HUD_swordinventory_image.hide()
+	_HUD_swordhint_label.hide()
+	_HUD_finishgame_label.hide()
 
 func _on_enemy1_defeat():
 	_enemy_one._defeat()
