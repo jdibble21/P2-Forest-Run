@@ -21,7 +21,6 @@ onready var _HUD_score_label := $Player/Camera2D/HUD/FinalScoreLabel
 onready var _music_loop := $MusicLoop
 onready var _gameover_sound := $GameOver
 onready var _win_sound := $GameWin
-onready var _enemy_defeat_sound := $EnemyDefeat
 onready var _enemy_one
 
 func _ready():
@@ -47,6 +46,7 @@ func _process(_delta):
 	if Input.is_action_just_pressed("return_to_menu"):
 		queue_free()
 		get_tree().get_root().add_child(_menu_screen.instance())
+	
 		
 		
 func _on_player_hit():
@@ -66,7 +66,6 @@ func _hide_labels():
 func _on_enemy1_defeat():
 	_enemy_one._defeat()
 	_enemy_defeat = true
-	_enemy_defeat_sound.play()
 	
 	
 func _on_sword_area_entered(_area):
