@@ -26,9 +26,7 @@ onready var _enemy_one
 func _ready():
 	_enemy_one = ENEMY_NODE.instance()
 	_enemy_one.position = Vector2(1403.41,214.242)
-	_enemy_one.id = 1
 	_enemy_one.connect("hit_player", self, "_on_player_hit")
-	_enemy_one.connect("defeated", self, "_on_enemy_defeat")
 	self.add_child(_enemy_one)
 	self.connect("game_over", self, "_game_over")
 	_player.connect("player_death", self, "_on_game_over")
@@ -60,11 +58,6 @@ func _hide_labels():
 	_HUD_swordhint_label.hide()
 	_HUD_finishgame_label.hide()
 	_HUD_score_label.hide()
-
-
-func _on_enemy1_defeat():
-	_enemy_one._defeat()
-	_enemy_defeat = true
 	
 	
 func _on_sword_area_entered(_area):
@@ -91,7 +84,7 @@ func _on_game_over():
 	_HUD_score_label.show()
 
 
-func _on_FinishArea_entered(area):
+func _on_FinishArea_entered(_area):
 	_music_loop.stop()
 	_player.set_physics_process(false)
 	_HUD_finishgame_label.show()
@@ -107,9 +100,11 @@ func _calculate_score():
 	var time_score = _get_time_score(time_value)
 	total_score = time_score
 	if $Player.has_sword:
-		total_score = total_score + 10
-	if _enemy_defeat:
 		total_score = total_score + 15
+		print('has sword!')
+	if _enemy_defeat:
+		total_score = total_score + 20
+		print('defeated enemy!')
 	if !_game_over:
 		total_score = total_score + 6
 	_HUD_score_label.text = "Score: " + str(total_score)
@@ -129,7 +124,5 @@ func _get_time_score(time):
 		if time >=26:
 			score = 5
 	if _game_over:
-		score = 5
-		if time > 10:
-			score = 10
+		score = 3
 	return score

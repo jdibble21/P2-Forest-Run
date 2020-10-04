@@ -4,7 +4,6 @@ extends KinematicBody2D
 
 signal player_death
 signal enemy1_hit
-signal enemy2_hit
 
 const SPEED := 180
 const GRAVITY := 30
@@ -59,6 +58,7 @@ func _play_attack_animation():
 func _check_for_enemy():
 	var enemy = _world._enemy_one
 	if enemy._player_detected:
+		_world._enemy_defeat = true
 		enemy._defeat()
 		
 		
