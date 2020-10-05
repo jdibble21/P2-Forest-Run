@@ -102,10 +102,8 @@ func _calculate_score():
 	total_score = time_score
 	if $Player.has_sword:
 		total_score = total_score + 15
-		print('has sword!')
 	if _enemy_defeat:
 		total_score = total_score + 20
-		print('defeated enemy!')
 	if !_game_over:
 		total_score = total_score + 6
 	_HUD_score_label.text = "Score: " + str(total_score)
