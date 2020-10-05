@@ -2,6 +2,7 @@
 extends Node2D
 
 signal game_over
+
 const ENEMY_NODE = preload("res://src/Enemy.tscn")
 
 var _game_over := false
@@ -49,7 +50,7 @@ func _process(_delta):
 func _on_player_hit():
 	emit_signal("game_over")
 	$Player/AnimatedSprite.play("death")
-	_player.set_physics_process(false)
+	_on_game_over()
 	
 	
 func _hide_labels():

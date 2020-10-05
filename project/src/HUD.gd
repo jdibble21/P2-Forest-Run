@@ -3,6 +3,7 @@ extends CanvasLayer
 
 var _time := 0.0
 var rounded_time
+
 onready var _time_label := $TimerLabel
 
 func _process(delta):
