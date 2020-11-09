@@ -49,7 +49,7 @@ func _physics_process(_delta):
 		_velocity.y = JUMPFORCE
 	_velocity = move_and_slide(_velocity,Vector2.UP)
 	_velocity.x = lerp(_velocity.x,0,0.5)
-
+	
 
 func _play_attack_animation():
 	_animation_control.play("attack")
